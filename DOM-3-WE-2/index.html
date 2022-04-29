@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+#container{
+    display: grid;
+    grid-template-rows: repeat(1,1fr);
+    grid-template-columns: repeat(4,1fr);
+    gap:10px;
+    width: 90%+;
+   margin: auto;
+   
+   text-align: center;
+}
+#container>div{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin: auto;
+}
+p+img{
+    margin: auto;
+    height:50px;
+    margin-top: -20px;
+
+}
+p{
+    height: 30px;
+    margin-top: -10px;
+}
+
+    </style>
+</head>
+
+<body>
+<div id="container">
+
+</div>
+</body>
+</html>
+<script>
+
+var investors=[
+    
+{avtar:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg",
+name:"Vijay Shekhar Sharma",
+position:"Founder & CEO",
+logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg"},
+
+{avtar:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Rectangle_427_637d69bb57.png",
+name:"Kunal Shah",
+position:"Founder",
+logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/cred_0a47d7b4f8.png"},
+
+{avtar:"https://masai-website-images.s3.ap-south-1.amazonaws.com/amrish_rau_pine_labs_144e5e587c.jpg",
+name:"Amrish Rau",
+position:"CEO",
+logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/pine_labs_0aa2407434.png"},
+
+{avtar:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Sampad_swain_Instamojo_f12bf6341e.jpg",
+name:"Sampad Swain",
+position:"CO-Founder & CEO",
+logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/instamojo_8763e704f7.png"}
+
+]
+
+investors.forEach(function(ele){
+    var box = document.createElement("div")
+
+    var avtar=document.createElement("img")
+    avtar.setAttribute("src",ele.avtar)
+
+    var name=document.createElement("h2")
+    name.innerText=ele.name
+
+    var position=document.createElement("p")
+      position.innerText=ele.position
+
+    var logo=document.createElement("img")
+logo.setAttribute("src",ele.logo)
+
+    box.append(avtar,name,position,logo)
+    document.querySelector("#container").append(box)
+})
+
+</script>

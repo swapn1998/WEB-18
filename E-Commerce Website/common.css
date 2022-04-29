@@ -1,0 +1,53 @@
+
+#container{
+    display: flex;
+    height:100px;
+    width:100%;
+background-color: aquamarine;
+    /* justify-content: space-evenly; */
+}
+#main{
+  font-size: 25px;
+ color: brown;
+ align-items: center;
+ justify-content: center;
+ display: flex;
+
+}
+
+
+#sub{
+    display: flex;
+   gap: 50px;
+   margin: auto;
+   font-weight: bold;
+   font-size: 20px;
+  
+}
+#login{
+    font-size: 20px;
+  
+    display: flex;
+  padding-right: 30px;
+  gap: 20px;
+  align-items: center;
+ justify-content: center;
+ display: flex;
+ 
+}
+#login>h2:nth-child(1)
+{
+    background-color:papayawhip;
+    border-radius: 20px;
+    padding: 10px;
+    color: black;
+
+
+}
+#login>h2:nth-child(2)
+{
+    background-color:papayawhip;
+    padding: 10px;
+    border-radius: 20px;
+
+}

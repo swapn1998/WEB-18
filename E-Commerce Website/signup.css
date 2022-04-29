@@ -1,0 +1,19 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+form{
+   width: 50%;
+ margin: auto;
+ padding-top: 180px;
+ background-color: blanchedalmond;
+}
+
+input{
+    display: block;
+    font-size: 30px;
+    margin: auto;
+    padding: 10px;
+   text-align: center;
+    
+}

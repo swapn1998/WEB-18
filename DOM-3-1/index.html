@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+   #card{
+       display: grid;
+       grid-template-columns: repeat(5,1fr);
+       grid-template-rows: repeat(1,200px);
+       gap:20px;
+       box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+       
+   }
+   #container
+   {
+       text-align: center;
+       background-color: gray;
+       box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+       
+   }
+    #category{
+        width:30%;
+        height:30px;
+        text-align: center;
+    }
+    #title{
+        width:30%;
+        height:30px;
+        text-align: center;
+    }
+    #desc{
+        width:30%;
+        height:30px;
+        text-align: center;
+    }
+     #price{
+        width:30%;
+        height:30px;
+        text-align: center;
+    }
+#submit{
+    height: 40px;
+    padding: 20px 35px 30px 35px;
+    
+    background-color: rgb(32, 218, 190);
+font-weight: bold;
+    border-radius:20px ;
+    border: 0px;
+}
+
+    </style>
+</head>
+<body>
+   
+        <form>
+            <div id="container">
+
+            <select name="" id="category">
+         <option value=""  id="zero">select</option>
+         <option id="one" value="">Electronics</option>
+         <option id="two" value="">Furniture</option>
+         <option id="three" value="">Home Appliance</option>
+         <option id="four" value="">Books</option>
+            </select><br>
+            <input type="text" id="title" placeholder="product title"><br>
+            <input type="text" id="desc" placeholder="product description"><br>
+            <input type="text" id="price" placeholder="product price"><br>
+            <input type="submit" id="submit">
+        </div>
+          </form>
+   
+    
+ <div id="card">
+
+
+ </div>
+
+</body>
+</html>
+<script>
+var form=document.querySelector("form").addEventListener("submit",myFunction)
+var card=document.querySelector("#card")
+function myFunction(){
+    event.preventDefault();
+    var category=document.querySelector("#category").value
+    var title=document.querySelector("#title").value
+    var desc=document.querySelector("#desc").value
+    var price=document.querySelector("#price").value
+
+    var parent=document.createElement("div")
+
+    var cate=document.createElement("h2")
+    cate.innerText=category;
+
+    var tit=document.createElement("p")
+    tit.innerText=title;
+
+    var des=document.createElement("p")
+    des.innerText=desc;
+
+    var pri=document.createElement("p")
+    pri.innerText=price;
+
+    var btn=document.createElement("button")
+    btn.innerText="DELETE"
+    btn.addEventListener("click",deletRow)
+    
+    parent.append(cate , tit,des,pri,btn)
+    card.append(parent)
+    
+}
+function deletRow(){
+    event.target.parentNode.remove();
+}
+
+
+</script>
