@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <select name="" id="name">
+    <option value="">sort by name</option>
+    <option value="ascending">ascending</option>
+    <option value="decending">decending</option>
+  </select>
+    <div class="products"></div>
+</body>
+</html>
+<script>
+  var cartData=JSON.parse(localStorage.getItem("masai-cart"))
+
+function display(cartData){
+    //   products.innerHTML=null;
+      cartData.forEach(function(ele){
+          var card=document.createElement("div");
+          
+
+          var img=document.createElement("img");
+          img.src=ele.img;
+
+          var title=document.createElement("h2")
+          title.innerText=ele.brand;
+
+          var desc=document.createElement("p")
+          desc.innerText=ele.name;
+
+          var catagory=document.createElement("h3")
+          catagory.innerText=ele.catagory;
+          
+          var price=document.createElement("h2");
+          price.innerText=ele.price
+
+          var button=document.createElement("button")
+          button.innerText="delete"
+          button.addEventListener("click",function(){
+            deletItem(ele,index);
+          })
+        
+             
+         
+          card.append(img,title,desc,catagory,price,button)
+          document.querySelector(".products").append(card);
+      })
+
+     }
+    
+     display(cartData);
+function deletItem(ele,index){
+    cartData.splice(index,1);
+  localStorage.setItem("cartLS",JSON.stringify(cartData))
+window.location.reload();
+}
+  
+</script>
