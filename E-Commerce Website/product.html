@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="common.css">
+   
+</head>
+<body>
+
+    <div id="container">
+        <div id="main"><h1>FASHION</h1></div>
+        <div id="sub">
+            <h2><a href="product.html">Women</a></h2>
+            <h2><a href="product.html">Men</a></h2>
+            <h2><a href="product.html">Kids</a></h2>
+            <h2><a href="product.html">Electronics</a></h2>
+        </div>
+        <div id="login">
+            <h2><a href="signup.html">Sign up</a> </h2>
+            
+            <h2><a href="signin.html"> Sign in</a> </h2>
+        </div>  
+
+    </div>
+  
+    <select name="" id="filter" >
+        <option value="none">Select a Category</option>
+        <option value="Casual">Casual</option>
+        <option value="festive">festive</option>
+        <option value="party">Party</option>
+    </select>
+
+    <select name="" id="name">
+      <option value="">sort by name</option>
+      <option value="ascending">ascending</option>
+      <option value="decending">decending</option>
+    
+    </select>
+
+    <select id="price">
+
+      <option value="">Sort By price</option>
+      <option value="htl">High to Low</option>
+      <option value="lth">Low to High</option>
+    </select>
+
+    <div class="products"></div>
+</body>
+</html>
+<script>
+
+    var productData=[
+    {
+    brand: "Puma",
+    name: "selena floral FileList",
+    price: "2000",
+    size: "X,XX,XXL",
+    productID: "women1",
+    catagory: "Casual",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/t/w/twentydressesmix_dr0935_1_984da863.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Gap",
+    name: "balck bella",
+    price: "1347",
+    size: "X,M,L,XX,XXL",
+    productID: "women2",
+    catagory: "festive",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/1/4/146117301_1_7fcd0574.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Puma",
+    name: "chil pill supersoft palysuit",
+    price: "799",
+    size: "M,L,XX,XXS",
+    productID: "women3",
+    catagory: "party",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/a/c/achwsivc466_1_a6c9da54.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Gap",
+    name: "plus size womens",
+    price: "2000",
+    size: "X,M,L,XXS,XXL",
+    productID: "women4",
+    catagory: "formal",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/i/n/ind158-pnk_1_3dc181e4.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Bady Moo",
+    name: "balck bella",
+    price: "1347",
+    size: "X,M,L",
+    productID: "women5",
+    catagory: "workout",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/p/h/pheeta-pht0067_1_96256fbd.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Pepe jeans",
+    name: "plus size womens",
+    price: "979",
+    size: "XXS,M,L",
+    productID: "women6",
+    catagory: "travel",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/o/_/o_228327501_1_857abfa6.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Puma",
+    name: "chil pill supersoft palysuit",
+    price: "2000",
+    size: "XXL,M,L",
+    productID: "women7",
+    catagory: "sports",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/t/w/twentydressesmix_dr0769_1_90caf4b3.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Gap",
+    name: "chil pill supersoft palysuit",
+    price: "1347",
+    size: "X,M,L,XX",
+    productID: "women8",
+    catagory: "Casual",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/k/a/kazo-123019black_1_85f6e006.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Bady Moo",
+    name: "balck bella",
+    price: "976",
+    size: "XS,M,L,XX",
+    productID: "women9",
+    catagory: "festive",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/r/t/rtor0011_1_67335460.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Gap",
+    name: "woman cotton off white",
+    price: "456",
+    size: "X,L,XX",
+    productID: "women10",
+    catagory: "party",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/a/h/ahtufrgfe19523_1_e0416277.jpg?rnd=20200526195200"
+  },
+  {
+    brand: "Bee bay",
+    name: "woman cotton off white",
+    price: "986",
+    size: "M,L,XXS",
+    productID: "women11",
+    catagory: "formal",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/a/c/achwkea595-1_dc090828.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Kaniroot",
+    name: "chill pill supersoft",
+    price: "567",
+    size: "S,M,L,XXl",
+    productID: "women12",
+    catagory: "workout",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/2/3/238451501_1_43bf9c90.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Bee bay",
+    name: "Curev multi-Color",
+    price: "765",
+    size: "S,X,L,XXl",
+    productID: "women13",
+    catagory: "travel",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/r/t/rtor0011_1_67335460.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Gap",
+    name: "Mega striple",
+    price: "9999",
+    size: "S,M,X,XXL",
+    productID: "women14",
+    catagory: "sports",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/o/_/o_119512401_1_e2d71be7.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Puma",
+    name: "balck bella",
+    price: "1347",
+    size: "S,M,X,XXL",
+    productID: "women15",
+    catagory: "Casual",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/1/4/146117301_1_7fcd0574.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Kaniroot",
+    name: "chil pill supersoft palysuit",
+    price: "799",
+    size: "S,M,L,XXL",
+    productID: "women16",
+    catagory: "festive",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/a/c/achwsivc466_1_a6c9da54.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Puma",
+    name: "plus size womens",
+    price: "2000",
+    size: "S,XX",
+    productID: "women17",
+    catagory: "party",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/i/n/ind158-pnk_1_3dc181e4.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Gap",
+    name: "balck bella",
+    price: "1347",
+    size: "S,M,XX,XXL",
+    productID: "women18",
+    catagory: "formal",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/p/h/pheeta-pht0067_1_96256fbd.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Bee bay",
+    name: "plus size womens",
+    price: "979",
+    size: "M,XXL,XX",
+    productID: "women19",
+    catagory: "workout",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/o/_/o_228327501_1_857abfa6.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Puma",
+    name: "chil pill supersoft palysuit",
+    price: "2000",
+    size: "M,X,L,XXL",
+    productID: "women20",
+    catagory: "travel",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/t/w/twentydressesmix_dr0769_1_90caf4b3.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Puma",
+    name: "chil pill supersoft palysuit",
+    price: "1347",
+    size: "M,L,XXL",
+    productID: "women21",
+    catagory: "sport",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/k/a/kazo-123019black_1_85f6e006.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Gap",
+    name: "balck bella",
+    price: "976",
+    size: "S,XX",
+    productID: "women22",
+    catagory: "Casual",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/r/t/rtor0011_1_67335460.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Puma",
+    name: "woman cotton off white",
+    price: "456",
+    size: "XXL",
+    productID: "women23",
+    catagory: "festive",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/a/h/ahtufrgfe19523_1_e0416277.jpg?rnd=20200526195200"
+  },
+  {
+    brand: "Gap",
+    name: "woman cotton off white",
+    price: "986",
+    size: "S,X,L",
+    productID: "women24",
+    catagory: "party",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/a/c/achwkea595-1_dc090828.jpg?rnd=20200526195200",
+  },
+  {
+    brand: "Kaniroot",
+    name: "chill pill supersoft",
+    price: "567",
+    size: "S,XXL,XX",
+    productID: "women25",
+    catagory: "formal",
+    img: "https://adn-static1.nykaa.com/nykdesignstudio-images/tr:w-550,/pub/media/catalog/product/2/3/238451501_1_43bf9c90.jpg?rnd=20200526195200",
+  },
+       
+        
+    ]
+    
+    
+    var cartData=JSON.parse(localStorage.getItem("masai-cart"))||[]
+    
+    localStorage.setItem("masai-product",JSON.stringify(productData))
+     //price htl or lth
+     document.querySelector("#price").addEventListener("change",myPrice)
+     function myPrice()
+     {
+        var price =document.querySelector("#price").value
+        if(price=="htl")
+        {
+          productData.sort(function(a,b){
+            return b.price-a.price
+          })
+          display(productData)
+        }
+
+        if(price=="lth")
+        {
+          productData.sort(function(a,b){
+            return a.price-b.price
+          })
+          display(productData)
+        }
+     }
+
+
+  
+   // ascend and decend by name
+    document.querySelector("#name").addEventListener("change",nameFunction)
+function nameFunction(){
+  var name=document.querySelector("#name").value;
+  if(name=="ascending")
+  {
+    var out=productData.sort(function(a,b){
+        var x=a.name.toUpperCase();
+        var y=b.name.toUpperCase();
+        if(x>y)
+        {
+          return 1;
+        }
+        else if(x<y)
+        {
+          return -1;
+        }
+        else
+        {
+          return 0;
+        }
+    })
+    display(out)
+  }
+
+  if(name=="decending")
+  {
+    var out=productData.sort(function(a,b){
+        var x=a.name.toUpperCase();
+        var y=b.name.toUpperCase();
+        if(x<y)
+        {
+          return 1;
+        }
+        else if(x>y)
+        {
+          return -1;
+        }
+        else
+        {
+          return 0;
+        }
+    })
+    display(out)
+  }
+}
+
+
+    function display(productData){
+      document.querySelector(".products").innerHTML="";
+      productData.forEach(function(ele){
+          var card=document.createElement("div");
+          
+
+          var img=document.createElement("img");
+          img.src=ele.img;
+
+          var title=document.createElement("h2")
+          title.innerText=ele.brand;
+
+          var desc=document.createElement("p")
+          desc.innerText=ele.name;
+
+          var catagory=document.createElement("h3")
+          catagory.innerText=ele.catagory;
+          
+          var price=document.createElement("h2");
+          price.innerText=ele.price
+
+          var button=document.createElement("button")
+          button.innerText="Add to Cart"
+          button.addEventListener("click",selected)
+         function selected(){
+             AddToCart(ele);
+         }
+         
+          card.append(img,title,desc,catagory,price,button)
+          document.querySelector(".products").append(card);
+      })
+     }
+     display(productData);
+    
+
+
+    // add to cart
+    function AddToCart(ele){
+        cartData.push(ele);
+        localStorage.setItem("masai-cart",JSON.stringify(cartData))
+        alert("Product added Successfully")
+    }
+
+
+
+
+    //filterout content
+
+    filter.addEventListener('change',myFunction)
+    function myFunction(){
+          if(filter.value=="none"){
+              display(productData)
+          }
+          else{
+              var filtered=productData.filter(function(ele){
+                  return ele.catagory==filter.value
+              })
+              display(filtered)
+}
+     }
+
+
+
+
+
+
+
+
+    
+// signin info
+    var signinData=JSON.parse(localStorage.getItem("signin"))
+    var user=document.querySelector("#login")
+    if(signinData!=null)
+    {
+    user.innerHTML=`<h2>User </h2>
+            <h2><a href="cart.html">Cart</a> </h2>`
+    }
+
+
+
+
+
+
+
+
+
+
+
+</script>
